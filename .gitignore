@@ -1,0 +1,6 @@
+.venv/
+.runtime/
+__pycache__/
+.DS_Store
+h2o_results/cluster_tmp/
+h2o_results/models/

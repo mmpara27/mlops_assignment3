@@ -1,0 +1,102 @@
+{
+  "source_sha256": "96480a6b8d1e5b4ace90f76fd9e8ba25dc40fb7830432eece6474f7655bcbb86",
+  "rows": 30015,
+  "columns": [
+    "region",
+    "gender",
+    "age",
+    "height",
+    "weight",
+    "candj",
+    "snatch",
+    "deadlift",
+    "backsq",
+    "eat",
+    "background",
+    "experience",
+    "schedule",
+    "howlong"
+  ],
+  "target": "deadlift",
+  "seed": 42,
+  "max_base_models_per_run": 10,
+  "platform": "macOS-26.6.2-arm64-arm-64bit-Mach-O",
+  "python_version": "3.14.7",
+  "h2o_version": "3.46.0.12",
+  "algorithm_scope": [
+    "GLM",
+    "GBM",
+    "DRF",
+    "StackedEnsemble"
+  ],
+  "categorical_columns": [
+    "region",
+    "gender",
+    "eat",
+    "background",
+    "experience",
+    "schedule",
+    "howlong"
+  ],
+  "partition_rows": {
+    "train": 19294,
+    "validation": 4807,
+    "test": 5914
+  },
+  "all_features": {
+    "predictors": [
+      "region",
+      "gender",
+      "age",
+      "height",
+      "weight",
+      "candj",
+      "snatch",
+      "backsq",
+      "eat",
+      "background",
+      "experience",
+      "schedule",
+      "howlong"
+    ],
+    "elapsed_seconds": 85.60069129200565,
+    "model_count": 12,
+    "leader_id": "StackedEnsemble_AllModels_1_AutoML_1_20261109_103524",
+    "leader_algorithm": "stackedensemble",
+    "validation_rmse": 37.218276770169886,
+    "test_rmse": 35.558808572209784,
+    "test_mae": 27.19746679032865,
+    "test_r2": 0.8634796064173137,
+    "model_file": "/Users/monicapara/Desktop/MLOps_Assignment3/h2o_results/models/StackedEnsemble_AllModels_1_AutoML_1_20261109_103524"
+  },
+  "importance_model_id": "GBM_5_AutoML_1_20261109_103524",
+  "importance_model_algorithm": "gbm",
+  "top_five_features": [
+    "backsq",
+    "candj",
+    "snatch",
+    "schedule",
+    "experience"
+  ],
+  "top_three_features": [
+    "backsq",
+    "candj",
+    "snatch"
+  ],
+  "top3_features": {
+    "predictors": [
+      "backsq",
+      "candj",
+      "snatch"
+    ],
+    "elapsed_seconds": 27.971993582999858,
+    "model_count": 12,
+    "leader_id": "StackedEnsemble_AllModels_1_AutoML_2_20261109_103650",
+    "leader_algorithm": "stackedensemble",
+    "validation_rmse": 38.37718518173224,
+    "test_rmse": 36.826365004001836,
+    "test_mae": 28.421016583049706,
+    "test_r2": 0.8535731107752309,
+    "model_file": "/Users/monicapara/Desktop/MLOps_Assignment3/h2o_results/models/StackedEnsemble_AllModels_1_AutoML_2_20261109_103650"
+  }
+}
