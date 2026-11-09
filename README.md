@@ -4,13 +4,13 @@ Dataset: **athletes.csv** · Target: **deadlift** · Metric: **RMSE** (lower is 
 
 ## DataRobot
 
-### 1 Dataset
+### 1. Dataset
 
 Uploaded 30,015 rows with 13 predictors and one target. Quick Autopilot used five-fold cross-validation and a 20% holdout. The original models used 19,209 training rows.
 
 ![DataRobot experiment setup](evidence/setup.jpg)
 
-### 2 Best AutoML model
+### 2. Best AutoML model
 
 **M8 — Light Gradient Boosting on ElasticNet Predictions**.
 
@@ -20,7 +20,7 @@ Uploaded 30,015 rows with 13 predictors and one target. Quick Autopilot used fiv
 
 ![DataRobot validation leaderboard and M8](evidence/validation-leaderboard.jpg)
 
-### 3 Data insights
+### 3. Data insights
 
 - No missing values in the 24,012-row non-holdout summary.
 - Deadlift: mean **361.89**, median **375**, range **1–1000**.
@@ -28,7 +28,7 @@ Uploaded 30,015 rows with 13 predictors and one target. Quick Autopilot used fiv
 
 ![DataRobot feature summary](evidence/feature-statistics.jpg)
 
-### 4 Top five features
+### 4.  Top five features
 
 M8 SHAP Feature Impact ranks **backsq, candj, gender, snatch, weight**, in that order.
 
@@ -38,7 +38,7 @@ The three-feature models use **backsq, candj, gender**.
 
 ![Three-feature list](evidence/top-three-features.jpg)
 
-### 5 Top three models by validation score
+### 5. Top three models by validation score
 
 **All features**
 
@@ -56,7 +56,7 @@ The three-feature models use **backsq, candj, gender**.
 | 2 | M67 | RuleFit Regressor | 36.8349 |
 | 3 | M63 | Generalized Additive2 Model | 36.8518 |
 
-### 6 Top three models by speed
+### 6. Top three models by speed
 
 Speed = mean of five CV **Wall Clock Time** values under Model Info. Lower is faster; this measures training time, not prediction time.
 
@@ -82,32 +82,32 @@ Speed = mean of five CV **Wall Clock Time** values under Model Info. Lower is fa
 
 M53 is excluded from the speed ranking because it has no five-fold timing data. Full scores and fold times: [results.csv](results.csv).
 
-### 7 Comparison with Assignment 1 Part A
+### 7. Comparison with Assignment 1 Part A
 
 DataRobot’s best model had a validation RMSE of 36.10, while Part A had a test RMSE of 131.53. However, Part A predicted total lift and DataRobot predicted deadlift, so the scores aren’t directly comparable. 
 
 Part A trained in about 3 seconds versus 10.16 seconds per CV fold for DataRobot M8, but the hardware and timing methods differed.
 
-### 8 Platform classification
+### 8. Platform classification
 
 **No-code:**  I used DataRobot to upload data, train models, and compare results without writing code as a way to explore what we discussed during lecture.
 
 ## H2O AutoML
 
-### 2 Best AutoML model
+### 2. Best AutoML model
 
 **StackedEnsemble AllModels** is the best model with all features: validation RMSE **37.2183**, test RMSE **35.5588**.
 
 Each feature set evaluated **12 models** using five-fold CV. Both used the same **19,294 training**, **4,807 validation**, and **5,914 test** rows (seed 42). Validation RMSE ranked models; test data were evaluated after selection. The search included GLM, GBM, DRF, and stacked ensembles, with a limit of 10 base models plus ensembles.
 
-### 3 Data insights
+### 3. Data insights
 
 - **0 missing cells** and **1 exact duplicate row**; no records were removed.
 - Deadlift: mean **362.10**, median **375**, range **1–1000**.
 - **backsq** has the strongest numeric correlation with deadlift (**0.904**).
 - Using only three features increases the best validation RMSE from **37.2183** to **38.3772**.
 
-### 4 Top five features
+### 4. Top five features
 
 **backsq, candj, snatch, schedule, experience**, in descending order.
 
@@ -115,7 +115,7 @@ These are native variable importances from **GBM_5**, the best-ranked model supp
 
 ![H2O top five features](h2o_results/top_five_features.png)
 
-### 5 Top three models by validation score
+### 5. Top three models by validation score
 
 **All features**
 
@@ -133,9 +133,9 @@ These are native variable importances from **GBM_5**, the best-ranked model supp
 | 2 | StackedEnsemble_BestOfFamily_1 | 38.3962 |
 | 3 | GBM_grid_1_model_1 | 38.4628 |
 
-Model names above omit run timestamp suffixes. Full model IDs: [all-feature leaderboard](h2o_results/all_features_leaderboard.csv) and [three-feature leaderboard](h2o_results/top3_features_leaderboard.csv).
+Model names above omit run timestamp suffixes. 
+Full model IDs: [all-feature leaderboard](h2o_results/all_features_leaderboard.csv) and [three-feature leaderboard](h2o_results/top3_features_leaderboard.csv).
 
-H2O and DataRobot use different partitions and preprocessing, so their scores are not a controlled comparison. DataRobot's data summary uses non-holdout rows; H2O's summary uses the entire uploaded dataset.
 
 ## Working code
 
